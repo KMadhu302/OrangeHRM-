@@ -1,0 +1,15 @@
+package com.RadioButtonTesting;
+
+import org.testng.annotations.Test;
+
+public class RadioButtonsTesting  extends BaseTest
+{
+	@Test
+	public void group1RadioButtonsTesting() 
+	{
+		
+		
+		
+	}
+
+}

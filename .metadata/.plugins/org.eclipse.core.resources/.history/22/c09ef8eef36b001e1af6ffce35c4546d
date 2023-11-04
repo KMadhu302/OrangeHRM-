@@ -1,0 +1,11 @@
+<Suite name="OHRMApplicationTesting"></Suite>
+
+     <test name="LoginTest">
+		 <classes>
+			 <class name="com.OHRMApplicationTestin.LoginTest"/>
+		 </classes>
+		 
+
+      </test>
+      
+      </suite>

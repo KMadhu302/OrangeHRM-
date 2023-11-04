@@ -1,0 +1,16 @@
+package com.OrangeHRMApplicationPages;
+
+import org.testng.annotations.Test;
+
+import com.BaseTest.BaseTest;
+
+public class OrangeHRMApplicationLoginPageTest extends BaseTest
+{
+@Test(priority=1,description="validating orangeHRMApplication Login Page Text-Login panel")
+	public void OrangeHRMApplication_LoginPage_LoginPanelTextTest() 
+	{
+		
+	OrangeHRMApplicationLoginPage orangeHRMApplication=new OrangeHRMApplicationLoginPage();
+	orangeHRMApplication.orangeHRMApplication_loginPage_loginPanelText();
+	}
+}

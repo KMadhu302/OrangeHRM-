@@ -1,0 +1,8 @@
+<suite name="orangeHRMApplication" parallel="tests">
+		<test name="LoginTest">
+			<classses>
+				<class name=" com.OrangeHRMApplicationPagesTest. orangeHRMApplication_loginPage_loginPanel"/>
+			</classses>
+		</test>
+		
+</suite>

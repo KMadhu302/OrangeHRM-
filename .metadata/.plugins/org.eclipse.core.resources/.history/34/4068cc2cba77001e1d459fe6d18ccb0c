@@ -1,0 +1,9 @@
+package com.OrangeHRMApplicationPages;
+
+import org.testng.annotations.Test;
+
+import com.BaseTest.BaseTest;
+
+public class OrangeHRMApplicationLoginPageTest extends BaseTest
+{
+}

@@ -1,0 +1,41 @@
+Feature: OrangeHRMApplication Functionalities Testing
+Scenario: OrangeHRMApplication LoginPage Test
+
+Given User should open the chrome Browser in the system
+When User should enters OrangeHRMAplication Url Address
+Then User should be navigated to OrangeHRMApplication LoginPage
+Then User should Close the Chrome Browser Along with the OrangeHRM Application
+
+Scenario: OrangeHRM Application Login Test
+
+Given User should open the chrome Browser in the system
+When User should enters OrangeHRMAplication Url Address
+Then User should be navigated to OrangeHRMApplication LoginPage
+Then User should enter UserName and Password and click on login button 
+Then User should be navigated to OrangeHRM Application HomePage
+Then User should click on WelCome Admin
+Then User should click on LogOut 
+Then User should navigated to OrangeHRM Application Login Page
+#Then User should Close the Chrome Browser Along with the OrangeHRM Application
+
+Scenario Outline: OrangeHRM Application Login Test -With TestData
+
+Given User should open the chrome Browser in the system
+When User should enters OrangeHRMAplication Url Address
+Then User should be navigated to OrangeHRMApplication LoginPage
+Then User should enter "<UserName>" and "<Password>" and click on login button 
+Then User should be navigated to OrangeHRM Application HomePage
+Then User should click on WelCome Admin
+Then User should click on LogOut 
+Then User should navigated to OrangeHRM Application Login Page
+#Then User should Close the Chrome Browser Along with the OrangeHRM Application
+
+Examples:
+
+| UserName | Password |
+| admin       |    Madhu@123 |
+| Admin       |    Madhu@123 |   
+| admin       |    Testing   |
+| admin       |    Madhu@123 |
+
+

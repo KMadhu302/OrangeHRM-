@@ -1,0 +1,63 @@
+package com.ExcelOperations;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ValidDataAndInvalidData 
+{
+	WebDriver driver;
+	String applicationUrlAddress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/dashboard";
+	
+	FileInputStream testDataFile;
+	XSSFWorkbook workBook;
+	XSSFSheet testDataSheet;
+	Row testDataRow;
+     public void applicationLaunch()
+	{
+		
+
+      System.setProperty("webdriver.chrome.driver", "./browserDriverFiles/chromedriver.exe");
+      driver = new ChromeDriver();
+      driver.get(applicationUrlAddress);
+      driver.manage().window().maximize();
+      
+  
+	}
+	public void applicationClose()
+	{
+		
+		driver.close();
+	}
+     public void loginTest() throws IOException 
+     {
+          testDataFile =new FileInputStream("C:\\Users\\madhu\\Desktop\\excel\\test.xlsx");
+          
+    	 workBook=new XSSFWorkbook(testDataFile);
+    	 
+    	 testDataSheet=workBook.getSheet("LoginTestData");
+    	 
+    	 //getting the username TestData
+    	 testDataRow=testDataSheet.getRow(1);
+    	 
+    	  Cell cellUserNameTestData=testDataRow.getCell(0);
+    	   String UserName=cellUserNameTestData.getStringCellValue();
+    	   //String UserName="admin";
+    	   
+    	   	
+    			   
+     }
+     public static void main(String[] args) throws IOException 
+     {
+    	 ValidDataAndInvalidData  data=new ValidDataAndInvalidData();
+    	 data.applicationLaunch();
+    	 data.loginTest();
+	}
+}

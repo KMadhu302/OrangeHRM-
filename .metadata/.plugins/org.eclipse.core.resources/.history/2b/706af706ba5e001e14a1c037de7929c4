@@ -1,0 +1,59 @@
+package MouseHover;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Amazon_HelloSignIn
+{
+	 private static WebElement yourOrders;
+
+	public static void main(String[] args) 
+	 {
+
+WebDriver driver;
+// WebDriver is an interface of the Selenium 
+
+System.setProperty("webdriver.chrome.driver", "./browserDriverFiles/chromedriver.exe");
+driver = new ChromeDriver();
+
+String applicationUrlAddress="http://amazon.in";
+driver.get(applicationUrlAddress);
+
+// Hello SignIn element property
+// id="nav-link-accountList"
+
+By helloSignInProperty=By.id("nav-link-accountList");
+WebElement helloSignIn=driver.findElement(helloSignInProperty);
+
+// Performing an operation on the Current WebPage
+
+// Actions class of the WebDriver is used to Perform Operations related to Mouse and 
+// Function keys of the KeyBoard
+
+Actions action = new Actions(driver);
+// A mouseHover operation is done on the element HelloSignIn
+action.moveToElement(helloSignIn).build().perform();
+
+// Operation on YourOrders - is an Hidden Element
+
+// Selenium WebDriver cannot directly recognize the Hidden Elements - first the element which
+// is hidden should be made visible - then the webdriver can recognize and Automate the element
+
+// <a id="nav_prefetch_yourorders" href="/gp/css/order-history?ref_=nav_AccountFlyout_orders" class="nav-link nav-item"><span class="nav-text">Your Orders</span></a>
+
+// The type of element is link
+
+By yourOrdersProperty=By.linkText("Your Orders");
+WebElement yourOrders=driver.findElement(yourOrdersProperty);
+yourOrders.click(); 
+
+System.out.println(driver.getTitle());
+
+
+		 
+		 
+	} 
+}

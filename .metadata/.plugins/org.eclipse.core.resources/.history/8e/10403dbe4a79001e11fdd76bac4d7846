@@ -1,0 +1,109 @@
+package com.StepDefination;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.Utility.Log;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class OrangeHRMApplicationUserDefineMethods 
+{
+
+	WebDriver driver;
+	String applicationUrlAddress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/dashboard";
+	@Given("User should open the chrome Browser in the system")
+	public void user_should_open_the_chrome_browser_in_the_system() 
+	{
+	    System.setProperty("webdriver.chrome.driver","./BrowserDriverFiles/chromedriver.exe");
+	    driver=new ChromeDriver();
+	    Log.info("****Chrome Browser Successfully Launched****");
+	}
+     
+	
+	@When("User should enters OrangeHRMAplication Url Address")
+	public void user_should_enters_orange_hrm_aplication_url_address()
+	{
+		driver.get(applicationUrlAddress);
+		   Log.info("*****Entere OrangeHRM Application Url Address****");
+	}
+
+	@Then("User should be navigated to OrangeHRMApplication LoginPage")
+	public void user_should_be_navigated_to_orange_hrm_application_login_page()
+	{
+
+		 String expected_orangeApplicationLoginPanelText="LOGIN Panel";
+		 Log.info("The Expected Text of the OrangeHRM Application Login Page Panel Text:-"+expected_orangeApplicationLoginPanelText);
+		  
+		//id="logInPanelHeading"
+		By orangeApplicationLoginPanelProperty=By.id("logInPanelHeading");
+		WebElement orangeApplicationLoginPanel=driver.findElement(orangeApplicationLoginPanelProperty);
+		
+		 String actual_orangeApplicationLoginPanelText=orangeApplicationLoginPanel.getText();
+		 Log.info("The Actual Text of the OrangeHRM Application Login Page Panel Text:-"+actual_orangeApplicationLoginPanelText);
+		 
+		 if(actual_orangeApplicationLoginPanelText.equals(expected_orangeApplicationLoginPanelText)) 
+		 {
+			 Log.info("Successfully navigated to OrangeHRM application Login Page:-PASS");
+			 
+			 
+		 }
+		 else
+		 {
+			 Log.info("Failed to navigate to OrangeHRM Application Login Page :-FAIL");
+			 
+		 }
+	}
+
+	@Then("User should Close the Chrome Browser Along with the OrangeHRM Application")
+	public void user_should_close_the_chrome_browser_along_with_the_orange_hrm_application()
+	{
+		driver.quit();
+	    Log.info("***OrangeHRM application along with Chrome Browser Succefully Closed****");
+    }
+	@When("User should enters OrangeHRMApplication Url Address")
+	public void user_should_enters_orange_hrm_application_url_address() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("User should enter UserName and Password and click on login button")
+	public void user_should_enter_user_name_and_password_and_click_on_login_button() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("User should be navigated to OrangeHRM Application HomePage")
+	public void user_should_be_navigated_to_orange_hrm_application_home_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("User should click on WelCome Admin")
+	public void user_should_click_on_wel_come_admin() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("User should click on LogOut")
+	public void user_should_click_on_log_out() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("User should navigated to OrangeHRM Application Login Page")
+	public void user_should_navigated_to_orange_hrm_application_login_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("User should close the Chrome Browser along with the OrangeHRM Application")
+	public void user_should_close_the_chrome_browser_along_with_the_orange_hrm_application() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+}

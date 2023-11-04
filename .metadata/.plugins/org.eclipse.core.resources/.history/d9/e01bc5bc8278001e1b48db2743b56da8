@@ -1,0 +1,11 @@
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="OrangeHRMApplication">
+
+    <test name="on Chrome">
+      <parameter name="Browser" value="chrome"/>
+       <classes>
+          <class name="com.Grid.LoginTest"/>
+       </classes>
+   </test>
+</suite>

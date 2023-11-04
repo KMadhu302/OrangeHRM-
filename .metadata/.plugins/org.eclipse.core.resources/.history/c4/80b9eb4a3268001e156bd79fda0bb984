@@ -1,0 +1,12 @@
+package com.Alerts;
+
+public class checkAvalinbility extends BaseTest
+
+{
+	public void applicationLaunch() 
+	{
+		
+		
+	}
+
+}

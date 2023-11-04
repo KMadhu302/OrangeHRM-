@@ -1,0 +1,53 @@
+package OHRM_LoginPage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ValidatingLoginpage 
+{
+
+	public static void main(String[] args) 
+	{
+		System.setProperty("webdriver.chrome.driver","./BrowserDriverFiles/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		
+		String applicationUrlAddress="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+		driver.get(applicationUrlAddress);
+	//<input name="txtUsername" id="txtUsername" type="text">	
+		
+		String userNameTestData="Admin";
+	
+		By userNameProperty=By.id("txtUsername");
+		WebElement userName=driver.findElement(userNameProperty);
+		userName.sendKeys(userNameTestData);
+		
+		//<input name="txtPassword" id="txtPassword" autocomplete="off" type="password">
+		String passwordTestData="admin123";
+		
+		By passwordProperty=By.name("txtPassword");
+		WebElement password=driver.findElement(passwordProperty);
+		password.sendKeys(passwordTestData);
+		
+		//<input type="submit" name="Submit" class="button" id="btnLogin" value="LOGIN">
+		driver.findElement(By.name("Submit")).click();
+		//expected login page title is
+		String expected_loginPageTitle=driver.getTitle();
+		System.out.println("the title of the login page is:-"+expected_loginPageTitle);
+		//actual login page title is
+		String actual_loginPageTitle=driver.getTitle();
+		System.out.println("the actual login page title is:-"+actual_loginPageTitle);
+		
+		if (actual_loginPageTitle.equals(expected_loginPageTitle))
+		{
+			System.out.println("the actaual login page title MATCHES:-PASS");
+		}
+		else	
+		{
+			System.out.println("the expected login page title NOT MATCHES:-FAIL");
+		}
+	}
+	
+	}
+
+

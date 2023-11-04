@@ -1,0 +1,37 @@
+package com.ExcelOperations;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Excel_Read_SingleTestData 
+{
+	public static void main(String[] args) throws IOException
+	{
+		//identify the File(Excel File)in the system
+		FileInputStream excelTestData=new FileInputStream("./src/com/ExcelTestDataFiles/SingleTestData.xlsx");
+		
+		//identify the WorkBook in the File
+		XSSFWorkbook workBook=new XSSFWorkbook(excelTestData);
+		
+		//Identify a particular sheet in the workBook
+		XSSFSheet testDataSheet=workBook.getSheet("TestData");
+		
+		//identfy the row in the sheet
+		XSSFRow sheetRow=testDataSheet.getRow(0);
+		
+		//identify the row of the cell in the Row
+		XSSFCell sheetRowOfCell=sheetRow.getCell(0);
+		
+		//Get the data from the Row of a cell
+		String testData=sheetRowOfCell.getStringCellValue();
+		
+		System.out.println(testData);
+		
+	}
+
+}

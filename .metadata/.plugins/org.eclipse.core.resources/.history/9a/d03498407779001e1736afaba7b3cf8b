@@ -1,0 +1,181 @@
+package com.StepDefination;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.Utility.Log;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class OrangeHRMApplicationUserDefineMethods 
+{
+
+	WebDriver driver;
+	String applicationUrlAddress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/dashboard";
+	
+	// Whenever class name is similar name to method name then it is called-Constructor
+	 public OrangeHRMApplicationUserDefineMethods(Hooks hook)// its a Constructor 
+	 
+	 {
+		 
+		 driver=hook.driver;
+	 }
+	
+	@Given("User should open the chrome Browser in the system")
+	public void user_should_open_the_chrome_browser_in_the_system() 
+	{
+	    //System.setProperty("webdriver.chrome.driver","./BrowserDriverFiles/chromedriver.exe");
+	    //driver =new ChromeDriver();
+	   //Log.info("****Chrome Browser Successfully Launched****");
+	}
+     
+	
+	@When("User should enters OrangeHRMAplication Url Address")
+	public void user_should_enters_orange_hrm_aplication_url_address()
+	{
+		driver.get(applicationUrlAddress);
+		   Log.info("*****Entere OrangeHRM Application Url Address****");
+		   
+		   driver.manage().window().maximize();
+		   driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		   driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+	}
+
+	@Then("User should be navigated to OrangeHRMApplication LoginPage")
+	public void user_should_be_navigated_to_orange_hrm_application_login_page()
+	{
+
+		 String expected_orangeApplicationLoginPanelText="LOGIN Panel";
+		 Log.info("The Expected Text of the OrangeHRM Application Login Page Panel Text:-"+expected_orangeApplicationLoginPanelText);
+		  
+		//id="logInPanelHeading"
+		By orangeApplicationLoginPanelProperty=By.id("logInPanelHeading");
+		WebElement orangeApplicationLoginPanel=driver.findElement(orangeApplicationLoginPanelProperty);
+		
+		 String actual_orangeApplicationLoginPanelText=orangeApplicationLoginPanel.getText();
+		 Log.info("The Actual Text of the OrangeHRM Application Login Page Panel Text:-"+actual_orangeApplicationLoginPanelText);
+		 
+		 if(actual_orangeApplicationLoginPanelText.equals(expected_orangeApplicationLoginPanelText)) 
+		 {
+			 Log.info("Successfully navigated to OrangeHRM application Login Page:-PASS");
+			 
+			 
+		 }
+		 else
+		 {
+			 Log.info("Failed to navigate to OrangeHRM Application Login Page :-FAIL");
+			 
+		 }
+	}
+
+	@Then("User should Close the Chrome Browser Along with the OrangeHRM Application")
+	public void user_should_close_the_chrome_browser_along_with_the_orange_hrm_application()
+	{
+		driver.quit();
+	    Log.info("***OrangeHRM application along with Chrome Browser Succefully Closed****");
+    }
+	@Then("User should enter UserName and Password and click on login button")
+	public void user_should_enter_user_name_and_password_and_click_on_login_button()
+	{
+	    //id="txtUsername"
+		
+		 By userNameProperty=By.id("txtUsername");
+		 WebElement userName=driver.findElement(userNameProperty);
+		 userName.sendKeys("admin");
+		 
+		 //name="txtPassword"
+		 
+		 By passwordProperty=By.name("txtPassword");
+          WebElement password=driver.findElement(passwordProperty);
+          password.sendKeys("Madhu@123");
+          
+          //id="btnLogin"
+          
+          By loginButtonProperty= By.id("btnLogin");
+          WebElement loginButton=driver.findElement(loginButtonProperty);
+          loginButton.click();
+	}
+
+	@Then("User should be navigated to OrangeHRM Application HomePage")
+	public void user_should_be_navigated_to_orange_hrm_application_home_page()
+	{
+	   String expected_OrangeHRMApplicationHomePageText="Admin";
+	   Log.info("The Expected Text of the OrangeHRMApplication HomePage:-"+expected_OrangeHRMApplicationHomePageText);
+       
+	   //id="welcome"
+	  By welcomeAdminProperty=By.id("welcome");
+	  WebElement welcomeAdmin=driver.findElement(welcomeAdminProperty);
+	  
+	  String  actual_OrangeHRMApplicationHomePageText=welcomeAdmin.getText();
+	  Log.info("The Actual Text OrangeHRMApplicatio HomePage:-"+actual_OrangeHRMApplicationHomePageText);
+	  
+	  if(actual_OrangeHRMApplicationHomePageText.contains(expected_OrangeHRMApplicationHomePageText))
+	  {
+		  Log.info("Successfully navigated to OrangeHRM Applicaton HomePage:-PASS");
+		  
+	  }
+	  else
+	  {
+		  Log.info("Failed to navigate to OrangeHRM application HomePage:-FAIL");
+	  }
+	 
+	
+	}
+	@Then("User should enter {string} and {string} and click on login button")
+	public void user_should_enter_and_and_click_on_login_button(String  UserName , String Password) 
+	{
+		//id="txtUsername"
+		
+		 By userNameProperty=By.id("txtUsername");
+		 WebElement userName=driver.findElement(userNameProperty);
+		 userName.sendKeys(UserName);
+		 
+		 //name="txtPassword"
+		 
+		 By passwordProperty=By.name("txtPassword");
+         WebElement password=driver.findElement(passwordProperty);
+         password.sendKeys(Password);
+         
+         //id="btnLogin"
+         
+         By loginButtonProperty= By.id("btnLogin");
+         WebElement loginButton=driver.findElement(loginButtonProperty);
+         loginButton.click();
+	}
+
+	@Then("User should click on WelCome Admin")
+	public void user_should_click_on_wel_come_admin()
+	{
+		 //id="welcome"
+		  By welcomeAdminProperty=By.id("welcome");
+		  WebElement welcomeAdmin=driver.findElement(welcomeAdminProperty);
+		   welcomeAdmin.click();
+	}
+	
+	@Then("User should click on LogOut")
+	public void user_should_click_on_log_out()
+	{
+		By logOutProperty=By.linkText("Logout");
+	    WebElement logOut=driver.findElement(logOutProperty);
+	    logOut.click();  
+	}
+
+	@Then("User should navigated to OrangeHRM Application Login Page")
+	public void user_should_navigated_to_orange_hrm_application_login_page()
+	{
+		driver.quit();
+	    Log.info("***OrangeHRM application along with Chrome Browser Succefully Closed****");
+	}
+
+}
+
+	
+	
+	
+

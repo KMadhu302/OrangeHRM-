@@ -1,0 +1,10 @@
+2023-11-01 12:57:30,630 - Log -INFO - **********chrome browser launched sucessfully************"
+2023-11-01 12:57:31,429 - Log -INFO - navigate to OrangeHRM application login page
+2023-11-01 12:57:32,252 - Log -INFO - The username:-Admin
+2023-11-01 12:57:32,338 - Log -INFO - The password :-Madhu@123
+2023-11-01 12:57:34,736 - Log -INFO - Click on Login button
+2023-11-01 12:57:34,763 - Log -INFO - The expected OHRM application Home page text is:-Welcome Admin
+2023-11-01 12:57:34,784 - Log -INFO - The actual text of ohrm application home page text is:-Welcome Admin
+2023-11-01 12:57:34,794 - Log -INFO - sucessfully navigate to ohrm application home page:-PASS
+2023-11-01 12:57:41,219 - Log -INFO - click on Logout button
+2023-11-01 12:57:41,715 - Log -INFO - OrangeHRM application along with chrome Browser Closed

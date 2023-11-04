@@ -1,0 +1,10 @@
+[main] INFO Log - **********chrome browser launched sucessfully************"
+[main] INFO Log - navigate to OrangeHRM application login page
+[main] INFO Log - The username:-Admin
+[main] INFO Log - The password :-Madhu@123
+[main] INFO Log - Click on Login button
+[main] INFO Log - The expected OHRM application Home page text is:-Welcome Admin
+[main] INFO Log - The actual text of ohrm application home page text is:-Welcome Admin
+[main] INFO Log - sucessfully navigate to ohrm application home page:-PASS
+[main] INFO Log - click on Logout button
+[main] INFO Log - OrangeHRM application along with chrome Browser Closed
